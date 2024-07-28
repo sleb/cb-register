@@ -1,0 +1,24 @@
+[package]
+name = "cb-register"
+version = "0.0.1"
+description = "A lightweight clipboard register"
+authors = ["sleb"]
+edition = "2021"
+
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies]
+tauri = { version = "1", features = ["system-tray", "global-shortcut"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clipboard-rs = "0.1"
+anyhow = "1.0"
+unicode-segmentation = "1.11"
+log = "0.4"
+env_logger = "0.11"
+
+[features]
+# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
